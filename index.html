@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizes</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+    crossorigin="anonymous">
+
+</head>
+
+<body>
+    
+    <div class="container"></div>
+
+    <button class="submit">Tugatish</button>
+
+    <script>
+
+    let questions = [
+        {
+            question: "HTML nimani anglatadi?",
+            options: ["Hyper Text Markup Language", "High Transfer Machine Learning", "Home Tool Management Link"],
+            answer: 0
+        },
+        {
+            question: "Kompyuterning markaziy protsessori qanday ataladi?",
+            options: ["CPU", "GPU", "RAM"],
+            answer: 0
+        },
+        {
+            question: "O'zbekiston poytaxti qaysi shahar?",
+            options: ["Buxoro", "Toshkent", "Samarqand"],
+            answer: 1
+        },
+        {
+            question: "Matematikada π (pi) ning taxminiy qiymati qaysi?",
+            options: ["2.14", "3.14", "4.14"],
+            answer: 1
+        },
+        {
+            question: "Quyosh tizimining eng katta sayyorasi qaysi?",
+            options: ["Yupiter", "Saturn", "Uran"],
+            answer: 0
+        },
+        {
+            question: "Ingliz tilida 'library' so‘zi nimani bildiradi?",
+            options: ["Kutubxona", "Laboratoriya", "Do‘kon"],
+            answer: 0
+        },
+        {
+            question: "Elektr toki kuchining birligi qaysi?",
+            options: ["Volt", "Amper", "Vatt"],
+            answer: 1
+        },
+        {
+            question: "HTML’da matnni qalin qilish uchun qaysi teg ishlatiladi?",
+            options: ["<i>", "<b>", "<u>"],
+            answer: 1
+        },
+        {
+            question: "Dunyoning eng uzun daryosi qaysi?",
+            options: ["Nil", "Amazonka", "Yantszi"],
+            answer: 0
+        },
+        {
+            question: "JavaScriptda const bilan e'lon qilingan o'zgaruvchiga qayta qiymat berish mumkinmi?",
+            options: ["Ha, istalgancha", "Yo‘q, qayta qiymat berib bo‘lmaydi", "Faqat string qiymatlarda mumkin"],
+            answer: 1
+        }
+    ]
+    let st=[]
+    let cont = document.querySelector(".container")
+    let num=0
+    questions.forEach(question => {
+
+        let q = document.createElement('h1')
+        q.textContent = question.question
+        q.classList.add("mt-4")
+
+        cont.append(q)
+
+        let id = 0
+        cont.classList.add('mb-4', 'form-check')
+
+        question.options.forEach(opt => {
+
+            let div = document.createElement('div')
+            div.classList.add('form-check')
+            
+            let lb = document.createElement('label')
+            lb.setAttribute('for', id)
+            lb.textContent = opt
+            lb.classList.add('form-check-label')
+            lb.setAttribute('style', 'display: block;')
+
+            let options = document.createElement('input')
+            options.setAttribute('type','radio')
+            options.setAttribute('name',num)
+            options.setAttribute('id', id)
+            options.setAttribute('value', opt)
+            options.classList.add('form-check-input')
+            options.addEventListener('click', ()=>{
+                st[num]=false
+                console.log(question.answer,id)
+                if(question.answer==id){
+                    st[num]=true
+                }
+            })
+
+            id++
+            
+            div.append(options)
+            div.append(lb)
+            cont.append(div)
+        })
+        
+        if (num == questions.length) {
+            return
+        }
+
+        let btn = document.querySelector('.submit')
+        btn.classList.add('btn', 'btn-primary', 'mb-4')
+        btn.addEventListener('click', () => {
+            let score = 0
+            st.forEach(correct => {
+                if (correct) {
+                    score++
+                }
+            })
+            alert(`Sizning natijangiz: ${score} / ${questions.length}`)
+        })
+        cont.append(btn)
+
+        num++
+
+    });
+
+    </script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizes</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+    crossorigin="anonymous">
+
+</head>
+
+<body>
+    
+    <div class="container"></div>
+
+    <button class="submit">Tugatish</button>
+
+    <script>
+
+    let questions = [
+        {
+            question: "HTML nimani anglatadi?",
+            options: ["Hyper Text Markup Language", "High Transfer Machine Learning", "Home Tool Management Link"],
+            answer: 0
+        },
+        {
+            question: "Kompyuterning markaziy protsessori qanday ataladi?",
+            options: ["CPU", "GPU", "RAM"],
+            answer: 0
+        },
+        {
+            question: "O'zbekiston poytaxti qaysi shahar?",
+            options: ["Buxoro", "Toshkent", "Samarqand"],
+            answer: 1
+        },
+        {
+            question: "Matematikada π (pi) ning taxminiy qiymati qaysi?",
+            options: ["2.14", "3.14", "4.14"],
+            answer: 1
+        },
+        {
+            question: "Quyosh tizimining eng katta sayyorasi qaysi?",
+            options: ["Yupiter", "Saturn", "Uran"],
+            answer: 0
+        },
+        {
+            question: "Ingliz tilida 'library' so‘zi nimani bildiradi?",
+            options: ["Kutubxona", "Laboratoriya", "Do‘kon"],
+            answer: 0
+        },
+        {
+            question: "Elektr toki kuchining birligi qaysi?",
+            options: ["Volt", "Amper", "Vatt"],
+            answer: 1
+        },
+        {
+            question: "HTML’da matnni qalin qilish uchun qaysi teg ishlatiladi?",
+            options: ["<i>", "<b>", "<u>"],
+            answer: 1
+        },
+        {
+            question: "Dunyoning eng uzun daryosi qaysi?",
+            options: ["Nil", "Amazonka", "Yantszi"],
+            answer: 0
+        },
+        {
+            question: "JavaScriptda const bilan e'lon qilingan o'zgaruvchiga qayta qiymat berish mumkinmi?",
+            options: ["Ha, istalgancha", "Yo‘q, qayta qiymat berib bo‘lmaydi", "Faqat string qiymatlarda mumkin"],
+            answer: 1
+        }
+    ]
+    let st=[]
+    let cont = document.querySelector(".container")
+    let num=0
+    questions.forEach(question => {
+
+        let q = document.createElement('h1')
+        q.textContent = question.question
+        q.classList.add("mt-4")
+
+        cont.append(q)
+
+        let id = 0
+        cont.classList.add('mb-4', 'form-check')
+
+        question.options.forEach(opt => {
+
+            let div = document.createElement('div')
+            div.classList.add('form-check')
+            
+            let lb = document.createElement('label')
+            lb.setAttribute('for', id)
+            lb.textContent = opt
+            lb.classList.add('form-check-label')
+            lb.setAttribute('style', 'display: block;')
+
+            let options = document.createElement('input')
+            options.setAttribute('type','radio')
+            options.setAttribute('name',num)
+            options.setAttribute('id', id)
+            options.setAttribute('value', opt)
+            options.classList.add('form-check-input')
+            options.addEventListener('click', ()=>{
+                st[num]=false
+                console.log(question.answer,id)
+                if(question.answer==id){
+                    st[num]=true
+                }
+            })
+
+            id++
+            
+            div.append(options)
+            div.append(lb)
+            cont.append(div)
+        })
+        
+        if (num == questions.length) {
+            return
+        }
+
+        let btn = document.querySelector('.submit')
+        btn.classList.add('btn', 'btn-primary', 'mb-4')
+        btn.addEventListener('click', () => {
+            let score = 0
+            st.forEach(correct => {
+                if (correct) {
+                    score++
+                }
+            })
+            alert(`Sizning natijangiz: ${score} / ${questions.length}`)
+        })
+        cont.append(btn)
+
+        num++
+
+    });
+
+    </script>
+
+</body>
+</html>
